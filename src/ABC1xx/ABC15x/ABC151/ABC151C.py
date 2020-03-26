@@ -14,11 +14,11 @@ def main():
             elif i[1] == "AC":
                 num_ac += 1
                 results[i[0]] = 1
-    
+
     for k in results.keys():
         if results[k] == 0:
             results_wa[k] = 0
-    
+
     num_wa = sum(results_wa.values())
     print(num_ac, num_wa)
 
