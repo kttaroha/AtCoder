@@ -5,7 +5,7 @@ All the solutions in this repository are tested by excuting supplied test cases 
 
 - ### Warnings! 
 The implementations below failed to pass the supplied test cases.  
-They needs to be submitted by other language options.  
+They need to be submitted by other language options.  
   
  [ABC160D](https://github.com/kttaroha/AtCoder/blob/master/src/ABC1xx/ABC16x/ABC160/ABC160D.py) (PyPy3)
 
