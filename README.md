@@ -3,7 +3,7 @@
 This repository stores the solutions for AtCoder programming contests (implemented in Python).  
 All the solutions in this repository are tested by excuting supplied test cases and comfirmed as accurate. 
 
-- ### WARNING! 
+- ### Warnings! 
 The implementations below failed to pass the supplied test cases.  
 They needs to be submitted by other language options.  
   
