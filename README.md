@@ -1,6 +1,6 @@
 # Solutions for AtCoder programming contests.
 - ### Abstract  
-This repository stores the solutions for AtCoder programming contests (implemented in Python).  
+This repository stores the solutions for AtCoder programming contests (implemented in Python3).  
 All the solutions in this repository are tested by excuting supplied test cases and comfirmed as accurate. 
 
 - ### Warnings! 
