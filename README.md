@@ -4,7 +4,7 @@ This repository stores the solutions for AtCoder programming contests (implement
 All the solutions in this repository are tested by excuting supplied test cases and comfirmed as accurate. 
 
 - ### Warnings! 
-The implementations below failed to pass the supplied test cases.  
+The implementations below failed to pass the supplied test cases in Python3.  
 They need to be submitted by other language options.  
   
  [ABC160D](https://github.com/kttaroha/AtCoder/blob/master/src/ABC1xx/ABC16x/ABC160/ABC160D.py) (PyPy3)
