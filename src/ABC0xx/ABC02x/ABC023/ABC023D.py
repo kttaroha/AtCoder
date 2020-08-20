@@ -8,8 +8,7 @@ def main():
     right = max_h + max_s*N + 1
     while abs(left-right) > 1:
         mid = (left + right) // 2
-        cond = is_satisfied(A, mid)
-        if cond:
+        if is_satisfied(A, mid):
             right = mid
         else:
             left = mid
