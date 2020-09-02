@@ -1,11 +1,15 @@
+from collections import defaultdict
+
+
 def main():
-    N, D = map(int, input().split())
-    A = [list(map(int, input().split())) for _ in range(N)]
-    cnt = 0
-    for a in A:
-        if (a[0]**2 + a[1]**2)**0.5 <= D:
-            cnt += 1
-    print(cnt)
+    N = int(input())
+    d = defaultdict(int)
+    results = ["AC", "WA", "TLE", "RE"]
+    for _ in range(N):
+        d[input()] += 1
+
+    for r in results:
+        print(f"{r} x {d[r]}")
 
 
 if __name__ == '__main__':
