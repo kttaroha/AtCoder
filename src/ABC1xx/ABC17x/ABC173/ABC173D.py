@@ -3,30 +3,27 @@ import heapq
 
 def main():
     _ = int(input())
-    A = list(input())
-    R_inds = []
-    W_inds = []
-    for i in range(len(A)):
-        if A[i] == "R":
-            R_inds.append(i*(-1))
-        else:
-            W_inds.append(i)
+    A = sorted(list(map(int, input().split())), reverse=True)
+    q = []
+    heapq.heapify(q)
+    ans = A[0]
+    tmp_score = min(A[0], A[1])
+    heapq.heappush(q, (-tmp_score, A[0], A[1]))
+    heapq.heappush(q, (-tmp_score, A[1], A[0]))
 
-    if len(R_inds) == 0 or len(W_inds) == 0:
-        print(0)
-        return
+    for a in A[2:]:
+        g = heapq.heappop(q)
+        ans += -g[0]
+        tmp_score1 = min(a, g[1])
+        tmp_push1 = (-tmp_score1, a, g[1])
 
-    heapq.heapify(R_inds)
-    heapq.heapify(W_inds)
-    cnt = 0
-    r_i = abs(heapq.heappop(R_inds))
-    w_i = heapq.heappop(W_inds)
-    while r_i > w_i:
-        cnt += 1
-        r_i = abs(heapq.heappushpop(R_inds, w_i*(-1)))
-        w_i = heapq.heappushpop(W_inds, r_i)
+        tmp_score2 = min(a, g[2])
+        tmp_push2 = (-tmp_score2, a, g[2])
 
-    print(cnt)
+        heapq.heappush(q, tmp_push1)
+        heapq.heappush(q, tmp_push2)
+
+    print(ans)
 
 
 if __name__ == '__main__':
