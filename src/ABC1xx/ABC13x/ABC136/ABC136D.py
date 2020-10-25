@@ -1,41 +1,46 @@
 from math import ceil
 
+
 def main():
-    S = list(input())
-    num_r = 0
-    num_l = 0
-    agg = []
-    pos = [0 for _ in range(len(S))]
+    S = input()
+    num_R = 0
+    num_L = 0
+    pos_rl = [0] * len(S)
+    # R->Lとなっている場所の特定
+    # R->Lとなっている場所のLの座標を格納するようにする
     for i in range(len(S)-1):
-
-        if S[i] == "R":
-            num_r += 1
-
-        elif S[i] == "L":
-            num_l += 1
-
         if S[i] == "R" and S[i+1] == "L":
-            agg.append((i, num_r))
-            num_r = 0
-        elif S[i] == "L" and S[i+1] == "R":
-            agg.append((i, num_l))
-            num_l = 0
+            pos_rl[i+1] += 1
 
-        if i == len(S) - 2:
-            num_l += 1
-            agg.append((i, num_l))
-            num_l = 0
+    # R->Lとなっている場所から左方向にRが連続して何個存在しているかカウント
+    cnt_R = [0] * len(S)
+    for i in range(len(S)):
+        if S[i] == "R":
+            num_R += 1
 
-    # length of agg is always even number
-    for i in range(0, len(agg)-1, 2):
-        idx = agg[i][0]
-        r_num = ceil(agg[i][1] / 2) + agg[i+1][1] // 2
-        l_num = agg[i][1] - ceil(agg[i][1] / 2) + agg[i+1][1] - agg[i+1][1] // 2
-        pos[idx] = r_num
-        pos[idx+1] = l_num
-    print(*pos)
+        if pos_rl[i]:
+            cnt_R[i] += num_R
+            num_R = 0
+
+    # R->Lとなっている場所から右方向にLが連続して何個存在しているかカウント
+    cnt_L = [0] * len(S)
+    for i in range(len(S)-1, -1, -1):
+        if S[i] == "L":
+            num_L += 1
+
+        if pos_rl[i]:
+            cnt_L[i] += num_L
+            num_L = 0
+
+    # 答えの集計
+    ans = [0] * len(S)
+    for i in range(len(S)):
+        if pos_rl[i]:
+            ans[i] += ceil(cnt_L[i] / 2) + cnt_R[i] // 2
+            ans[i-1] += cnt_L[i] // 2 + ceil(cnt_R[i] / 2)
+
+    print(*ans)
 
 
 if __name__ == '__main__':
     main()
-
