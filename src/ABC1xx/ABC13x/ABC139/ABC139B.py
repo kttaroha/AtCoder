@@ -1,11 +1,12 @@
 def main():
     A, B = map(int, input().split())
-    num_socket = 1
-    num_tap = 0 
-    while num_socket < B:
-        num_tap += 1
-        num_socket += A - 1
-    print(num_tap)
+    cnt = 1
+    num = 0
+    while cnt < B:
+        cnt += A - 1
+        num += 1
+
+    print(num)
 
 
 if __name__ == '__main__':
